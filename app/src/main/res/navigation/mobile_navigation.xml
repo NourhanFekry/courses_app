@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_courses">
+
+    <fragment
+        android:id="@+id/nav_courses"
+        android:name="com.nourhan.coursesapp.ui.courses.CoursesFragment"
+        android:label="Courses"
+        tools:layout="@layout/courses_fragment">
+        <action
+            android:id="@+id/action_nav_courses_to_nav_notes"
+            app:destination="@id/nav_notes" />
+        <action
+            android:id="@+id/action_nav_courses_to_addEditCourseFragment"
+            app:destination="@id/addCourseFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCourseFragment"
+        android:name="com.nourhan.coursesapp.ui.courses.AddCourseFragment"
+        android:label="AddEditCourseFragment"
+        tools:layout="@layout/fragment_add_course">
+        <action
+            android:id="@+id/action_addCourseFragment_to_nav_courses"
+            app:destination="@id/nav_courses" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_notes"
+        android:name="com.nourhan.coursesapp.ui.notes.NotesFragment"
+        android:label="@string/all_notes"
+        tools:layout="@layout/notes_fragment">
+        <action
+            android:id="@+id/action_nav_notes_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.nourhan.coursesapp.ui.notes.AddNoteFragment"
+        android:label="AddEditNoteFragment"
+        tools:layout="@layout/fragment_add_note">
+        <action
+            android:id="@+id/action_addNoteFragment_to_nav_notes"
+            app:destination="@id/nav_notes" />
+    </fragment>
+
+    <activity
+        android:id="@+id/nav_about"
+        android:name="com.nourhan.coursesapp.ui.AboutActivity"
+        android:label="About"
+        tools:layout="@layout/activity_about" />
+</navigation>
